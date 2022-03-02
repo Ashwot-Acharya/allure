@@ -10,11 +10,12 @@
     <div class="w-4/12 bg-white  rounded-lg" >
         <h2 class="text-center"> Login</h2>
             @if (session('status'))
-            <div class="p-4 text-white bg-red-500 w-full p-4 rounded-lg border-2">
+            <div class="p-4">
+            <div class="text-white bg-red-700 w-full px-3 py-3 p-4 w-full rounded border-2">
 
                     {{session('status')}}   
                     </div>
-             
+</div>
             @endif
         <form action="{{route('login')}}" method="post">
             @csrf

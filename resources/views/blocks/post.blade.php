@@ -7,7 +7,7 @@
 @extends('layouts.index')
 
 @section('content')
-<div class="flex justify-center">
+<div class="flex  justify-center">
     <div class="w-8/12 p-3 bg-white  rounded-lg" >
      <div class="text-center center" >
      </h3> Message</h3>

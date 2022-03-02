@@ -1,5 +1,6 @@
 <head>
     <title> allure:home </title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
 </head>
@@ -9,7 +10,7 @@
 
 @section('content')
 <div class="flex justify-center">
-    <div class="w-8/12 p-3 bg-white " > 
+    <div class="w-9/12 p-3 bg-stale-700 " > 
     @if ($posts->count())
         @foreach ($posts as $post)
             <div class="mb-4 p-4 bg-gray-300 rounded " >
@@ -19,7 +20,7 @@
             </div>
         
          @endforeach
-         {{ $posts->links() }}
+            {{ $posts->links('pagination::tailwind') }} 
     @else
     There are no posts        
     @endif

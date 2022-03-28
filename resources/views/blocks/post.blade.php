@@ -1,7 +1,8 @@
 <head>
     <title> allure:post </title>
+    <script src="http://cdn.ckeditor.com/4.17.1/basic/ckeditor.js"></script>
+
 </head>
-<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
 
 
 @extends('layouts.index')
@@ -14,8 +15,8 @@
      <form action="{{route('post')}}" method="post" >
          @csrf
          <textarea name="post"></textarea>
-                <script>
-                        CKEDITOR.replace( 'post' );
+                <script>                 
+                var editor = CKEDITOR.replace('post');
                 </script>
                 @error('post')
                     <p class=" small-text red-200 "> This feild is required </p>

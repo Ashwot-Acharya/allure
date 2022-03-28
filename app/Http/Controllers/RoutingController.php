@@ -9,6 +9,8 @@ class RoutingController extends Controller
     public function home(){
         return view('blocks.home');
     }
+
+
    
   
 }

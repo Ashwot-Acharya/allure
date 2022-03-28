@@ -10,7 +10,7 @@ class DashBoardController extends Controller
 {
     public function index(){
         $user = Auth::user()-> id;
-        $post = Post::where('user_id','=', $user) -> get();
+        $post = Post::where('user_id','=', $user) -> paginate(3);
         //  $posts = Post::where( $user == Post()->user_id);
          return view('blocks.dashboard', ["posts" => $post]);
         

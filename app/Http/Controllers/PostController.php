@@ -27,7 +27,25 @@ class PostController extends Controller
 
     public function home(){
         
-        $posts = Post::paginate(5);
-        return view('blocks.home', ["posts" => $posts]);
+        $posts = Post::orderBy('id','desc')->paginate(5);  
+        if (Auth::guest()){
+            return view('blocks.home',['posts'=>$posts], ['mypost' => "nopost"] );
+
+        }  
+        $user = Auth::user()-> id;
+    
+        $mypost = Post::where('user_id','=', $user)->orderBy('id','desc') -> paginate(3);
+        return view('blocks.home', ["posts" => $posts] , ['mypost'=>$mypost]);
+
+             
+            
+        
+    }
+    public function cow(){
+        $user = Auth::user()-> id;
+        $post = Post::where('user_id','=', $user) -> get();
+        //  $posts = Post::where( $user == Post()->user_id);
+        
+        return view('blocks.trial',["posts"=>$posts]);
     }
 }

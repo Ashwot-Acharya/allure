@@ -15,13 +15,35 @@ class PostController extends Controller
 
     public function store(Request $request){
         $this -> validate($request,[
-            'post' => ['required']
-        ]);
+            'post' =>'required',
+            'image' =>'max:5048|mimes:png,jpg',
+            'title'=> 'required|max:200'     
+           ]);
+           if ($request->image == null) {
+            auth()->user()->post()->create([
+                'body'=>$request->post,
+                'image_path' => "no_value",
+                
+                
+            ]);
+              return redirect('/home'); 
+      
+            }
+            elseif($request->image != null){
+                      $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
+      
       auth()->user()->post()->create([
           'body'=>$request->post,
+          'image_path' => $newImageName,
+          
           
       ]);
-        return redirect('/home');
+        return redirect('/home'); 
+
+            }
+
+  
 
     }
 

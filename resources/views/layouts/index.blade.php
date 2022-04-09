@@ -6,19 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>allure</title>
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script>
-           // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
-
-    var pusher = new Pusher('4ed1646741241630925c', {
-    cluster: 'ap2'
-    });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-    alert(JSON.stringify(data));
-    });
-        </script>
 </head>
 <body class='' >
     <nav class="p-6 bg-slate-700  text-white flex justify-between mb-6 " >

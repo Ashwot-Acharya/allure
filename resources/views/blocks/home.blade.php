@@ -17,7 +17,14 @@
             <div class="mb-4 p-4 bg-gray-300 rounded " >
             <a href="" class="font-bold" > {{$post->user->username}} </a> 
             <span class=" p-3 text-sm"> {{$post->created_at->toTimeString()}} </span>
+            <div class="prose prose-lg">
             {!!$post->body!!}
+            </div>
+            @if ($post->image_path != 'no_value')
+            <img style="width: 500px;"  src="{{ asset('images/' . $post->image_path)}}">
+            @endif
+           
+   
             </div>
         
          @endforeach
@@ -46,6 +53,11 @@
             <a href="{{route('dashboard')}}" class="font-bold" > {{$mypost->user->username}} </a> 
             <span class="text-sm"> {{$mypost->created_at->toTimeString()}} </span>
              {!!$mypost->body!!}
+             @if ($mypost->image_path != 'no_value')
+            <img style="width:350px"  src="{{ asset('images/' . $mypost->image_path)}}">
+            @endif
+
+
              <br>
                              
 </div>

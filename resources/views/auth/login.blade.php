@@ -7,8 +7,8 @@
 @section('content')
 <body class="bg-slate-700">
 <div class="flex  justify-center">
-    <div class="w-4/12 bg-white  rounded-lg" >
-        <h2 class="text-center"> Login</h2>
+    <div class="w-4/12 bg-blue-200  rounded-lg" >
+        <h2 class="text-center p-3 "> Login</h2>
             @if (session('status'))
             <div class="p-4">
             <div class="text-white bg-red-700 w-full px-3 py-3 p-4 w-full rounded border-2">

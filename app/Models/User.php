@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+    public function messages(){
+        return $this ->hasMany(Message::class);
+    }
     protected $fillable = [
         'name',
         'email',

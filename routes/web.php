@@ -5,7 +5,7 @@ use App\Http\Request;
 use App\Http\Response;
 
 use App\Http\Controllers\PostController;
-use App\Events\Message; 
+use App\Events\MessageSent; 
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\auth\LoginoutController;
@@ -41,4 +41,7 @@ Route::post('/post/delete/{id}',[DashBoardController::class, 'delete'] )->name('
 Route::get('/',[PostController::class,'home'])->name('/'); 
 Route::post('/sendmessage',[ChatController::class,'chat'] )->name('sendmessage');
 Route::post('/changepassword',[LoginoutController::class,'updatepwd'])->name('changepwd');
-Route::get('/messaging',[ChatController::class,'gochat'] )->name('message');
+Route::get('/messaging',[ChatController::class,'index'] )->name('message');
+Route::get('/broadcast',function() {
+    broadcast(new MessageSent("ashwot","i love you"));
+});

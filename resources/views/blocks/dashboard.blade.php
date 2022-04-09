@@ -7,6 +7,21 @@
 @extends('layouts.index')
 
 @section('content')
+@csrf
+            @if (session('status')) 
+            <script>
+
+</script>
+            
+            <div class="p-4">
+            <div id='session-s' class="text-white bg-red-700 w-full px-3 py-3 p-4 w-full rounded border-2">
+
+                    {{session('status')}}   
+
+                    </div>
+</div>
+            @endif
+            <div clas
 <!-- section 1  -->
 <section id="three" class="form">
       <div class="login-wrap  bg-white ">
@@ -26,6 +41,9 @@
             <a href="" class="font-bold" > {{$post->user->username}} </a> 
             <span class="text-sm"> {{$post->created_at->toTimeString()}} </span>
              {!!$post->body!!}
+             @if ($post->image_path != 'no_value')
+            <img style="width:350px"  src="{{ asset('images/' . $post->image_path)}}">
+            @endif
              <br>
                 
                 <form action="{{url('/post/delete/').'/'.$post->id}}" method="post" >
@@ -48,19 +66,7 @@
 <div class="sign-up-htm">
 <form action="{{route('changepwd')}}" method="post">
             @csrf
-            @if (session('status')) 
-            <script>
-
-</script>
-            
-            <div class="p-4">
-            <div id='session-s' class="text-white bg-red-700 w-full px-3 py-3 p-4 w-full rounded border-2">
-
-                    {{session('status')}}   
-
-                    </div>
-</div>
-            @endif
+  
             <div class="p-4">
                 <label for="oldpassword" class="sr-only" > Old password</label>
                 <input type="password" name="oldpassword" id="oldpassword" placeholder="old password" value="{{old('password')}}" class=" bg-gray-200 w-full p-4 rounded-lg border-2" />       

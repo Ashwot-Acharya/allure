@@ -42,8 +42,16 @@
             <span class="text-sm"> {{$post->created_at->toTimeString()}} </span>
              {!!$post->body!!}
              @if ($post->image_path != 'no_value')
-            <img style="width:350px"  src="{{ asset('images/' . $post->image_path)}}">
+            @if (($post->image_path)[-3] != 'm')
+             <img style="width: 500px;"  src="{{ asset('images/' . $post->image_path)}}">
+            @else
+            <video width="320" height="240" controls>
+            <source src="{{asset('images/' . $post->image_path)}}" type="video/mp4">
+            Your browser does not support the video tag.
+         </video> 
+         @endif
             @endif
+           
              <br>
                 
                 <form action="{{url('/post/delete/').'/'.$post->id}}" method="post" >

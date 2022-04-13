@@ -16,10 +16,10 @@ class PostController extends Controller
     public function store(Request $request){
         $this -> validate($request,[
             'post' =>'required',
-            'image' =>'max:5048|mimes:png,jpg',
+            'image' =>'mimes:png,jpg,mp4,mp3,gif',
             'title'=> 'required|max:200'     
            ]);
-           if ($request->image == null) {
+           if ($request->image == null ) {
             auth()->user()->post()->create([
                 'body'=>$request->post,
                 'image_path' => "no_value",

@@ -435,17 +435,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   white-space: nowrap;
   border-width: 0;
 }
+.pointer-events-none {
+  pointer-events: none;
+}
 .relative {
   position: relative;
 }
 .z-0 {
   z-index: 0;
 }
+.float-left {
+  float: left;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
 .mb-6 {
   margin-bottom: 1.5rem;
+}
+.-ml-10 {
+  margin-left: -2.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -486,6 +495,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-8\/12 {
   width: 66.666667%;
 }
+.w-9 {
+  width: 2.25rem;
+}
 .w-5 {
   width: 1.25rem;
 }
@@ -495,8 +507,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex-1 {
   flex: 1 1 0%;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .cursor-default {
   cursor: default;
+}
+.appearance-none {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .items-center {
   align-items: center;
@@ -583,8 +603,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-transparent {
   background-color: transparent;
 }
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+.bg-slate-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+.bg-contain {
+  background-size: contain;
+}
 .bg-clip-padding {
   background-clip: padding-box;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 .p-3 {
   padding: 0.75rem;
@@ -620,6 +654,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-center {
   text-align: center;
+}
+.align-top {
+  vertical-align: top;
 }
 .text-sm {
   font-size: 0.875rem;
@@ -686,6 +723,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
+.opacity-50 {
+  opacity: 0.5;
+}
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -699,6 +739,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ring-gray-300 {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity));
+}
+.filter-none {
+  filter: none;
 }
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;

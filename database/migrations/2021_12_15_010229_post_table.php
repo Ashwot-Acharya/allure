@@ -18,6 +18,7 @@ class PostTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('body');
             $table ->longText('image_path');
+            // $table ->longText('video_path');
             $table->timestamps();
         });
     }

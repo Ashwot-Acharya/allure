@@ -16,27 +16,33 @@ class RegisterController extends Controller
         return view('auth.register');
     }
     public function  store(Request $request){
-
         $this->validate($request,[
             'name'=>['required','max:255'],
             'username'=> ['required','max:255'],
+            'password'=>['required','confirmed'],
             'email'=>['required','email','max:255'],
-            'password'=>['required','confirmed']
-
+            'description'=>['required'],
+            'image' =>['required']
 
         ]);
+        $newImageName = uniqid() . '-' . $request->username . '.' . $request->image->extension();
+        $request->image->move(public_path('profile'), $newImageName);
+
         User::create([
             'name'=>$request->name,
             'username'=>$request->username,
+            'profilepic' => $newImageName,
+            'description'=>$request->description,
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
 
         ]);
+
 
         auth()-> attempt($request->only('email','password'));
 
 
         return redirect()->route('dashboard');
     }
-   
+
 }

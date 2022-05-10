@@ -17,14 +17,14 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    public function messages(){
-        return $this ->hasMany(Message::class);
-    }
+
     protected $fillable = [
         'name',
         'email',
         'password',
         'username',
+        'description',
+        'profilepic',
     ];
 
     /**
@@ -49,7 +49,7 @@ class User extends Authenticatable
     public function post(){
         return $this->hasMany(Post::class);
 
-        
+
 
     }
 

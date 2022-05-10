@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Auth;
 
 class RoutingController extends Controller
 {
@@ -10,7 +12,10 @@ class RoutingController extends Controller
         return view('blocks.home');
     }
 
+    public function profile($username){
+        $user = User::where('username', $username)->get();
 
-   
-  
+        return view("blocks.Profile",["post" => $user]);
+    }
+
 }

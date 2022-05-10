@@ -15,6 +15,8 @@ class AddUsernameToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string("username");
+            $table->string("description");
+            $table ->longText('profilepic');
         });
     }
 
@@ -27,6 +29,9 @@ class AddUsernameToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn("username");
+            $table->dropColumn("description");
+            $table->dropColumn("profilepic");
+
 
         });
     }

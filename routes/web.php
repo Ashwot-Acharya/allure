@@ -5,7 +5,7 @@ use App\Http\Request;
 use App\Http\Response;
 
 use App\Http\Controllers\PostController;
-use App\Events\MessageSent; 
+use App\Events\MessageSent;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\auth\LoginoutController;
@@ -37,11 +37,9 @@ Route::post('send-message',[ChatController::class ,'chat'])->name('chat');
 
 Route::post('/post',[PostController::class,'store']) -> name('post');
 Route::post('/post/delete/{id}',[DashBoardController::class, 'delete'] )->name('delete');
-
-Route::get('/',[PostController::class,'home'])->name('/'); 
+Route::get('/',[PostController::class,'home'])->name('/');
 Route::post('/sendmessage',[ChatController::class,'chat'] )->name('sendmessage');
 Route::post('/changepassword',[LoginoutController::class,'updatepwd'])->name('changepwd');
 Route::get('/messaging',[ChatController::class,'index'] )->name('message');
-Route::get('/broadcast',function() {
-    broadcast(new MessageSent("ashwot","i love you"));
-});
+Route::get('/profile/{username}',[RoutingController::class,'profile']);
+Route::get('/exportpdf/{username}',[RoutingController::class,'exportpdf']);

@@ -70,7 +70,6 @@ home
                         </div>
                         <div class="dropdown-content">
                             <a href="{{Route('dashboard')}}">Dashboard</a>
-                            <a href="#">Card </a>
 
                             <a href="#">
                                 <form action="{{route('logout')}}" method="post" class="inline" >

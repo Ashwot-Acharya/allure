@@ -17,5 +17,9 @@ class RoutingController extends Controller
 
         return view("blocks.Profile",["post" => $user]);
     }
+    public function downloadqr($name){
+
+
+    }
 
 }

@@ -7,7 +7,41 @@
 
 
 @extends('layouts.index')
+<div id="load" class="load">
+  <hr/><hr/><hr/><hr/>
+</div>
+<style>
+    body{background:#ECF0F1}
 
+.load{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);
+  /*change these sizes to fit into your project*/
+  width:100px;
+  height:100px;
+}
+.load hr{border:0;margin:0;width:40%;height:40%;position:absolute;border-radius:50%;animation:spin 2s ease infinite}
+
+.load :first-child{background:#19A68C;animation-delay:-1.5s}
+.load :nth-child(2){background:#F63D3A;animation-delay:-1s}
+.load :nth-child(3){background:#FDA543;animation-delay:-0.5s}
+.load :last-child{background:#193B48}
+
+@keyframes spin{
+  0%,100%{transform:translate(0)}
+  25%{transform:translate(160%)}
+  50%{transform:translate(160%, 160%)}
+  75%{transform:translate(0, 160%)}
+
+}
+
+</style>
+<script>
+
+setTimeout(() => {   document.querySelector('.load').classList.toggle('fade');
+}, 2000);
+setTimeout(() => { document.querySelector('.load').style.display = 'none';
+}, 2000);
+
+    </script>
 @section('content')
 <p class="p-3 text-2xl "> Community Posts </p>
 
@@ -33,10 +67,9 @@ more_vert
             @if (($post->image_path)[-3] != 'm')
 
 </style>
-            <div class="myimg">
-             <img style="overflow:hidden;"  width="450px"  src="{{ asset('images/' . $post->image_path)}}">
+            <div style="max-height 130px; overflow:hidden;" class=" w-9/12  container">
+             <img src="{{ asset('images/' . $post->image_path)}}">
 </div>
-
 
             @elseif ($post->image_path[-1]=='4')
             <video width="500px" controls>
@@ -52,11 +85,7 @@ more_vert
             @endif
             <div class="p-3">  <button> <span class="material-symbols-outlined">
 favorite
- </span> </button> <a> <span class="material-symbols-outlined">
-add </a> <a href="mailto: ?subject="> <span class="material-symbols-outlined">
-google_plus_reshare
-</span> </a>
-</span> </div>
+ </span> </button> <a> <span class="material-symbols-outlined">add </a> <a href="mailto: ?subject=Lets connect in allure.websitelink &body=Hello there i am {{$post->user->name}} Lets talk and connect "> <span class="material-symbols-outlined">google_plus_reshare</span> </a> </span> </div>
 
 
             </div>

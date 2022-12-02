@@ -21,5 +21,9 @@ class RoutingController extends Controller
 
 
     }
+    public function reset(){
+        return view('auth.reset');
+
+    }
 
 }

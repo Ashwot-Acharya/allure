@@ -45,12 +45,12 @@ setTimeout(() => { document.querySelector('.load').style.display = 'none';
 @section('content')
 <p class="p-3 text-2xl "> Community Posts </p>
 
-<div class="flex  justify-center">
+<div class="flex">
 
-    <div class=" p-3 grid grid-cols-2 gap-4  " >
+    <div class=" p-3 grid grid-cols-4 gap-2  " >
     @if ($posts->count())
         @foreach ($posts as $post)
-            <div class="mb-4 p-4 bg-gray-300 rounded " >
+            <div class="mb-4 p-4 max-w-sm min-h-6 rounded-3xl overflow-hidden shadow-lg border-r border-b rounded " >
                 <div class="flex justify-between">
            <div> <img style="width:50px" class="rounded rounded-full" src="{{asset('profile/' . $post-> user -> profilepic) }}">
             <a href="profile/{{$post->user->username}}"  class="p-3  text-xl font-bold" > {{$post->user->username}} </a>
@@ -97,7 +97,7 @@ favorite
     @endif
 
 </div>
-<div class=" w-4/12 p-3 flex-none bg-slate-700  " >
+<!-- <div class=" w-4/12 p-3 flex-none bg-slate-700  " >
       <p class='text-primary p-3 text-white' > My Recent Posts </p>
     @if ($mypost == "nopost")
         <div class="mb-4  p-4  rounded " >
@@ -113,7 +113,7 @@ favorite
   <a href="{{route('register')}}" class =' mb-4  p-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' >register</a>
 </div>
 <!-- ____________ NEW SECTION __________ -->
-
+<!-- 
     @else
 
     @if ($mypost->count())
@@ -145,9 +145,9 @@ favorite
    @else
    There are no posts
    @endif
-</div>
+</div> -->
 
-    @endif
+    @endif 
 
 
 

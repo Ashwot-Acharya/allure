@@ -17,7 +17,6 @@ class PostController extends Controller
         $this -> validate($request,[
             'post' =>'required',
             'image' =>'mimes:png,jpg,mp4,mp3,gif',
-            'title'=> 'required|max:200'     
            ]);
            if ($request->image == null ) {
             auth()->user()->post()->create([

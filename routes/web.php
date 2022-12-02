@@ -33,7 +33,7 @@ Route::get('/post',[PostController::class,'post'])->name('post')
 ->middleware('auth');
 
 Route::post('send-message',[ChatController::class ,'chat'])->name('chat');
-
+Route::get('/resetpassword',[RoutingController::class,'reset'])->name('reset');
 
 Route::post('/post',[PostController::class,'store']) -> name('post');
 Route::post('/post/delete/{id}',[DashBoardController::class, 'delete'] )->name('delete');

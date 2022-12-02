@@ -10,12 +10,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body id='main_body' class="" >
-    <nav class="p-6 bg-slate-700  text-white flex justify-between mb-6 " >
+<body id='main_body' class="bg-gray-100" >
+    <nav class="p-6 bg-slate-400  text-white flex justify-between mb-6 " >
         <ul class="flex items-center">
-            <li> <a href="{{Route('home')}}" class="text-xl p-3" ><span class="material-symbols-outlined">
-home
-</span> </a>  </li>
+            <li> <a href="{{Route('home')}}" class="text-xl p-3 " > Allure  </a>  </li>
             @if (auth()->user())
             <li> <a href="{{Route('post')}}" class="p-3" >Post</a> </li>
             @endif

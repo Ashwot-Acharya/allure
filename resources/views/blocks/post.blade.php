@@ -45,14 +45,8 @@ setTimeout(() => { document.querySelector('.load').style.display = 'none';
 <div class="flex  justify-center">
     <div class="w-8/12 p-3 bg-white  rounded-lg" >
      <div class="text-center center" >
-     </h3> Message</h3>
      <form action="{{route('post')}}"  enctype="multipart/form-data"  method="post" >
          @csrf
-       <div class="p-3">  <input type = "text" class=" p-3 roundedc bg-gray-300" name="title" placeholder="Title">
-                @error('title')
-                <p class=" small-text red-200 "> This feild is required </p>
-                @enderror
-</div>
          <textarea name="post"></textarea>
                 <script>
                 var editor = CKEDITOR.replace('post');
